@@ -14,12 +14,12 @@ public class AbstractDaoImpl<T extends AbstractEntity> implements
 	protected final Map<Integer, T> map = new ConcurrentHashMap<Integer, T>();
 
 	@Override
-	public T save(T entity) {
-		if (entity.getId() == null) {
-			entity.setId(IdSet++);
+	public T save(T object) {
+		if (object.getId() == null) {
+			object.setId(IdSet++);
 		}
-		map.put(entity.getId(), entity);
-		return entity;
+		map.put(object.getId(), object);
+		return object;
 	}
 
 	@Override

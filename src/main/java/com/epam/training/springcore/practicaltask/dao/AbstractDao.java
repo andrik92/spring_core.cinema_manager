@@ -6,7 +6,7 @@ import com.epam.training.springcore.practicaltask.entity.AbstractEntity;
 
 public interface AbstractDao<T extends AbstractEntity> {
 
-	public abstract T save(T entity);
+	public abstract T save(T object);
 
 	public abstract void remove(Integer id);
 

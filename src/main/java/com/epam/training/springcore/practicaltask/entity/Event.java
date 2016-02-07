@@ -1,7 +1,9 @@
 package com.epam.training.springcore.practicaltask.entity;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Event extends AbstractEntity {
@@ -43,4 +45,22 @@ public class Event extends AbstractEntity {
 		this.raiting = raiting;
 	}
 
+	private Map<Date, Auditorium> auditoriums = new TreeMap<>();
+
+	public boolean assignAuditorium(Date dateTime, Auditorium auditorium) {
+		if (sessionsSet.contains(dateTime)) {
+			auditoriums.put(dateTime, auditorium);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean addSessionTime(Date dateTime) {
+		return sessionsSet.add(dateTime);
+	}
+
+	public boolean removeAuditoriumAssignment(Date dateTime) {
+		return auditoriums.remove(dateTime) != null;
+	}
 }
