@@ -11,12 +11,12 @@
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
 	<util:set id="auditoriums">
-		<bean class="ua.epam.spring.hometask.domain.Auditorium">
+		<bean class="com.epam.training.springcore.practicaltask.entity.Auditorium">
 			<constructor-arg>
 				<util:properties location="classpath:auditoriums/hall1.properties"/>
 			</constructor-arg>
 		</bean>
-		<bean class="ua.epam.spring.hometask.domain.Auditorium">
+		<bean class="com.epam.training.springcore.practicaltask.entity.Auditorium">
 			<constructor-arg>
 				<util:properties location="classpath:auditoriums/hall2.properties"/>
 			</constructor-arg>

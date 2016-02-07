@@ -6,10 +6,10 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
-import com.epam.training.springcore.practicaltask.config.AppConfig;
 import com.epam.training.springcore.practicaltask.entity.User;
 
-@ContextConfiguration(classes = AppConfig.class)
+//@ContextConfiguration(classes = AppConfig.class)
+@ContextConfiguration("classpath:spring.xml")
 public class TestUserService extends AbstractJUnit4SpringContextTests {
 	@Test
 	public void testUserServiceIsDefinedAsBean() {
