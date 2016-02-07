@@ -1,10 +1,14 @@
 package com.epam.training.springcore.practicaltask.entity;
 
+import java.util.Set;
+import java.util.TreeSet;
+
 public class User extends AbstractEntity {
 
 	private String firstName;
 	private String lastName;
 	private String email;
+	private Set<Ticket> tickets = new TreeSet<>();
 
 	public String getFirstName() {
 		return firstName;
@@ -30,10 +34,12 @@ public class User extends AbstractEntity {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + getId() + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", email=" + email + "]";
+	public Set<Ticket> getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(Set<Ticket> tickets) {
+		this.tickets = tickets;
 	}
 
 }

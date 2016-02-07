@@ -12,6 +12,8 @@ public class Event extends AbstractEntity {
 	private Set<Date> sessionsSet = new TreeSet<>();
 	private double basePrice;
 	private EventRating raiting;
+	private Map<Date, Auditorium> auditoriums = new TreeMap<>();
+	private Set<Ticket> tickets = new TreeSet<>();
 
 	public String getName() {
 		return name;
@@ -45,7 +47,13 @@ public class Event extends AbstractEntity {
 		this.raiting = raiting;
 	}
 
-	private Map<Date, Auditorium> auditoriums = new TreeMap<>();
+	public Set<Ticket> getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(Set<Ticket> tickets) {
+		this.tickets = tickets;
+	}
 
 	public boolean assignAuditorium(Date dateTime, Auditorium auditorium) {
 		if (sessionsSet.contains(dateTime)) {

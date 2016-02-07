@@ -25,7 +25,7 @@ public class TestUserService extends AbstractJUnit4SpringContextTests {
 
 		User user = createUser();
 
-		User registered = service.register(user);
+		User registered = service.save(user);
 		Assert.assertNotNull(registered);
 		Assert.assertNotNull(registered.getId());
 		Assert.assertEquals(user, registered);
@@ -37,7 +37,7 @@ public class TestUserService extends AbstractJUnit4SpringContextTests {
 		UserService service = applicationContext.getBean(UserService.class);
 		User user = createUser();
 
-		User registered = service.register(user);
+		User registered = service.save(user);
 
 		User byId = service.getById(registered.getId());
 		Assert.assertEquals(registered, byId);
@@ -52,7 +52,7 @@ public class TestUserService extends AbstractJUnit4SpringContextTests {
 		UserService service = applicationContext.getBean(UserService.class);
 		User user = createUser();
 
-		User registered = service.register(user);
+		User registered = service.save(user);
 		service.remove(registered);
 
 		User byId = service.getById(registered.getId());

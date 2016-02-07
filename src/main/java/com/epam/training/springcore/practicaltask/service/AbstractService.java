@@ -11,7 +11,7 @@ public class AbstractService<T extends AbstractEntity, D extends AbstractDao<T>>
 		this.dao = dao;
 	}
 
-	public T register(T object) {
+	public T save(T object) {
 		return dao.save(object);
 	}
 

@@ -32,7 +32,7 @@ public class TestEventService extends AbstractJUnit4SpringContextTests {
 
 		Event event = createEvent();
 
-		Event registered = service.register(event);
+		Event registered = service.save(event);
 		assertNotNull(registered);
 		assertNotNull(registered.getId());
 		assertEquals(event, registered);
@@ -44,7 +44,7 @@ public class TestEventService extends AbstractJUnit4SpringContextTests {
 		EventService service = applicationContext.getBean(EventService.class);
 		Event event = createEvent();
 
-		Event registered = service.register(event);
+		Event registered = service.save(event);
 
 		Event byId = service.getById(registered.getId());
 		assertEquals(registered, byId);
@@ -56,7 +56,7 @@ public class TestEventService extends AbstractJUnit4SpringContextTests {
 		EventService service = applicationContext.getBean(EventService.class);
 		Event event = createEvent();
 
-		Event registered = service.register(event);
+		Event registered = service.save(event);
 		service.remove(registered);
 
 		Event byId = service.getById(registered.getId());
