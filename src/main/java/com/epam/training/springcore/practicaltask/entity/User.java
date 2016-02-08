@@ -3,11 +3,14 @@ package com.epam.training.springcore.practicaltask.entity;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.joda.time.DateTime;
+
 public class User extends AbstractEntity {
 
 	private String firstName;
 	private String lastName;
 	private String email;
+	private DateTime birthDate;
 	private Set<Ticket> tickets = new TreeSet<>();
 
 	public String getFirstName() {
@@ -32,6 +35,14 @@ public class User extends AbstractEntity {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public DateTime getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(DateTime birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	public Set<Ticket> getTickets() {

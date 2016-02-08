@@ -15,4 +15,8 @@ public class UserService extends AbstractService<User, UserDao> {
 		return userDao.getByEmail(email);
 	}
 
+	public User getByName(String firstName) {
+		return userDao.getByName(firstName);
+	}
+
 }

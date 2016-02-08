@@ -5,15 +5,14 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Date;
-
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import com.epam.training.springcore.practicaltask.entity.Event;
-import com.epam.training.springcore.practicaltask.entity.EventRating;
+import com.epam.training.springcore.practicaltask.enumeration.EventRating;
 
 @ContextConfiguration("classpath:spring.xml")
 public class TestEventService extends AbstractJUnit4SpringContextTests {
@@ -68,7 +67,7 @@ public class TestEventService extends AbstractJUnit4SpringContextTests {
 		event.setName("aaa");
 		event.setRaiting(EventRating.HIGH);
 		event.setBasePrice(100.10);
-		event.addSessionTime(new Date());
+		event.addSessionTime(new DateTime());
 		return event;
 	}
 

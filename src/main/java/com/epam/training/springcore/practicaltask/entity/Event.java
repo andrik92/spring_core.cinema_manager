@@ -6,13 +6,17 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.joda.time.DateTime;
+
+import com.epam.training.springcore.practicaltask.enumeration.EventRating;
+
 public class Event extends AbstractEntity {
 
 	private String name;
-	private Set<Date> sessionsSet = new TreeSet<>();
+	private Set<DateTime> sessionsSet = new TreeSet<>();
 	private double basePrice;
 	private EventRating raiting;
-	private Map<Date, Auditorium> auditoriums = new TreeMap<>();
+	private Map<DateTime, Auditorium> auditoriums = new TreeMap<>();
 	private Set<Ticket> tickets = new TreeSet<>();
 
 	public String getName() {
@@ -23,11 +27,11 @@ public class Event extends AbstractEntity {
 		this.name = name;
 	}
 
-	public Set<Date> getSessionsSet() {
+	public Set<DateTime> getSessionsSet() {
 		return sessionsSet;
 	}
 
-	public void setSessionsSet(Set<Date> sessionsSet) {
+	public void setSessionsSet(Set<DateTime> sessionsSet) {
 		this.sessionsSet = sessionsSet;
 	}
 
@@ -55,7 +59,7 @@ public class Event extends AbstractEntity {
 		this.tickets = tickets;
 	}
 
-	public boolean assignAuditorium(Date dateTime, Auditorium auditorium) {
+	public boolean assignAuditorium(DateTime dateTime, Auditorium auditorium) {
 		if (sessionsSet.contains(dateTime)) {
 			auditoriums.put(dateTime, auditorium);
 			return true;
@@ -64,7 +68,7 @@ public class Event extends AbstractEntity {
 		}
 	}
 
-	public boolean addSessionTime(Date dateTime) {
+	public boolean addSessionTime(DateTime dateTime) {
 		return sessionsSet.add(dateTime);
 	}
 

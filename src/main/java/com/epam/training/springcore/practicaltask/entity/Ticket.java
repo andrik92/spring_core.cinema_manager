@@ -1,6 +1,6 @@
 package com.epam.training.springcore.practicaltask.entity;
 
-import java.util.Date;
+import org.joda.time.DateTime;
 
 public class Ticket extends AbstractEntity {
 
@@ -8,11 +8,11 @@ public class Ticket extends AbstractEntity {
 
 	private Event event;
 
-	private Date dateTime;
+	private DateTime dateTime;
 
 	private long seat;
 
-	public Ticket(User user, Event event, Date dateTime, long seat) {
+	public Ticket(User user, Event event, DateTime dateTime, long seat) {
 		this.user = user;
 		this.event = event;
 		this.dateTime = dateTime;
@@ -27,7 +27,7 @@ public class Ticket extends AbstractEntity {
 		return event;
 	}
 
-	public Date getDateTime() {
+	public DateTime getDateTime() {
 		return dateTime;
 	}
 

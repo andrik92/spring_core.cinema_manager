@@ -1,13 +1,14 @@
 package com.epam.training.springcore.practicaltask.service;
 
-import java.util.Date;
 import java.util.List;
+
+import org.joda.time.DateTime;
 
 import com.epam.training.springcore.practicaltask.dao.EventDao;
 import com.epam.training.springcore.practicaltask.dao.impl.EventDaoImpl;
 import com.epam.training.springcore.practicaltask.entity.Event;
-import com.epam.training.springcore.practicaltask.entity.EventRating;
 import com.epam.training.springcore.practicaltask.entity.User;
+import com.epam.training.springcore.practicaltask.enumeration.EventRating;
 
 public class BookingService {
 	
@@ -15,7 +16,7 @@ public class BookingService {
 	
 	private double highRatingMultiplier = 1;
 	
-	public double getTicketPrice(Event event, Date dateTime, List<Long> seats, User user) {
+	public double getTicketPrice(Event event, DateTime dateTime, List<Long> seats, User user) {
 		EventDao eventDao = new EventDaoImpl();
 		
 		if (eventDao.eventOnDate(event, dateTime)) {

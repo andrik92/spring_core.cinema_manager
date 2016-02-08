@@ -1,6 +1,5 @@
 package com.epam.training.springcore.practicaltask.entity;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Properties;
 import java.util.Set;
