@@ -5,18 +5,16 @@ import com.epam.training.springcore.practicaltask.entity.User;
 
 public class UserService extends AbstractService<User, UserDao> {
 
-	private UserDao userDao;
-
 	public UserService(UserDao dao) {
 		super(dao);
 	}
 
 	public User getByEmail(String email) {
-		return userDao.getByEmail(email);
+		return dao.getByEmail(email);
 	}
 
 	public User getByName(String firstName) {
-		return userDao.getByName(firstName);
+		return dao.getByName(firstName);
 	}
 
 }

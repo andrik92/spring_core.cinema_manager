@@ -13,12 +13,12 @@
 	<util:set id="auditoriums">
 		<bean class="com.epam.training.springcore.practicaltask.entity.Auditorium">
 			<constructor-arg>
-				<util:properties location="classpath:auditoriums/hall1.properties"/>
+				<util:properties location="classpath:auditoriums/auditoruim1.properties"/>
 			</constructor-arg>
 		</bean>
 		<bean class="com.epam.training.springcore.practicaltask.entity.Auditorium">
 			<constructor-arg>
-				<util:properties location="classpath:auditoriums/hall2.properties"/>
+				<util:properties location="classpath:auditoriums/auditoruim2.properties"/>
 			</constructor-arg>
 		</bean>
 	</util:set>

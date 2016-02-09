@@ -39,4 +39,13 @@
 		<property name="highRatingMultiplier" value="${high.rate.multiplier}" />
 	</bean>
 
+	<bean id="discountService" class="com.epam.training.springcore.practicaltask.service.DiscountService">
+		<property name="discountStrategies">
+			<list>
+				<bean class="com.epam.training.springcore.practicaltask.business.discount.LoyaltyDiscount"/>
+				<bean class="com.epam.training.springcore.practicaltask.business.discount.BirthdayDiscount"/>
+			</list>
+		</property>
+	</bean>
+
 </beans>

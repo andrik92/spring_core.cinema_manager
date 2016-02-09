@@ -56,19 +56,10 @@ public class Auditorium {
 		this.vipSeats = vipSeats;
 	}
 
-//	public long countVipSeats(Collection<Integer> seats) {
-//		for (Integer seat: seats){
-//			if ()
-//		}
-//		
-//		//		return seats.stream().filter(seat -> vipSeats.contains(seat)).count();
-//	}
-//	
 	@Override
 	public String toString() {
 		return "Auditorium [name=" + name + ", numberOfSeats=" + numberOfSeats
 				+ ", vipSeats=" + vipSeats + "]";
 	}
 
-	
 }

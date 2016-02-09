@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
@@ -61,7 +60,6 @@ public class TestBookingService extends AbstractJUnit4SpringContextTests {
 		event.setName("aaa");
 		event.setRaiting(EventRating.HIGH);
 		event.setBasePrice(100);
-		event.addSessionTime(new DateTime());
 		return event;
 	}
 

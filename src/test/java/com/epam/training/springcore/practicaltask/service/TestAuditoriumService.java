@@ -27,6 +27,8 @@ public class TestAuditoriumService extends AbstractJUnit4SpringContextTests {
 		Assert.assertNotNull(auditoriums);
 		Assert.assertFalse(auditoriums.isEmpty());
 
+		System.out.println(auditoriums.toString());
+		
 		for (Auditorium auditorium : auditoriums) {
 			Auditorium a = service.getByName(auditorium.getName());
 			Assert.assertNotNull(a);

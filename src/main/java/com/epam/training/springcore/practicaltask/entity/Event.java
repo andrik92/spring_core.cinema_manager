@@ -1,6 +1,5 @@
 package com.epam.training.springcore.practicaltask.entity;
 
-import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -13,9 +12,9 @@ import com.epam.training.springcore.practicaltask.enumeration.EventRating;
 public class Event extends AbstractEntity {
 
 	private String name;
-	private Set<DateTime> sessionsSet = new TreeSet<>();
 	private double basePrice;
 	private EventRating raiting;
+	private Set<DateTime> sessionsSet = new TreeSet<>();
 	private Map<DateTime, Auditorium> auditoriums = new TreeMap<>();
 	private Set<Ticket> tickets = new TreeSet<>();
 
@@ -58,21 +57,22 @@ public class Event extends AbstractEntity {
 	public void setTickets(Set<Ticket> tickets) {
 		this.tickets = tickets;
 	}
-
-	public boolean assignAuditorium(DateTime dateTime, Auditorium auditorium) {
-		if (sessionsSet.contains(dateTime)) {
-			auditoriums.put(dateTime, auditorium);
-			return true;
-		} else {
-			return false;
-		}
+	
+	public Map<DateTime, Auditorium> getAuditoriums() {
+		return auditoriums;
 	}
 
-	public boolean addSessionTime(DateTime dateTime) {
-		return sessionsSet.add(dateTime);
+	public void setAuditoriums(Map<DateTime, Auditorium> auditoriums) {
+		this.auditoriums = auditoriums;
 	}
 
-	public boolean removeAuditoriumAssignment(Date dateTime) {
-		return auditoriums.remove(dateTime) != null;
+	@Override
+	public String toString() {
+		return "Event [name=" + name + ", basePrice=" + basePrice
+				+ ", raiting=" + raiting + ", sessionsSet=" + sessionsSet
+				+ ", auditoriums=" + auditoriums + ", tickets=" + tickets + "]";
 	}
+	
+	
+
 }

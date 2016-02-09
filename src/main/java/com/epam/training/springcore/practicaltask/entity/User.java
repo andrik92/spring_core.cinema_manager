@@ -11,8 +11,8 @@ public class User extends AbstractEntity {
 	private String lastName;
 	private String email;
 	private DateTime birthDate;
-	private Set<Ticket> tickets = new TreeSet<>();
-
+	private Set<Ticket> bookedTickets = new TreeSet<>();
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -46,11 +46,11 @@ public class User extends AbstractEntity {
 	}
 
 	public Set<Ticket> getTickets() {
-		return tickets;
+		return bookedTickets;
 	}
 
 	public void setTickets(Set<Ticket> tickets) {
-		this.tickets = tickets;
+		this.bookedTickets = tickets;
 	}
 
 }

@@ -5,6 +5,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Set;
+import java.util.TreeSet;
+
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.test.annotation.DirtiesContext;
@@ -64,10 +67,15 @@ public class TestEventService extends AbstractJUnit4SpringContextTests {
 
 	private Event createEvent() {
 		Event event = new Event();
-		event.setName("aaa");
+		Set<DateTime> sessionsSet = new TreeSet<>();
+		sessionsSet.add(DateTime.now());
+		sessionsSet.add(DateTime.now().plusDays(1));
+		sessionsSet.add(DateTime.now().plusDays(2));
+		event.setName("Kino");
 		event.setRaiting(EventRating.HIGH);
 		event.setBasePrice(100.10);
-		event.addSessionTime(new DateTime());
+		event.setSessionsSet(sessionsSet);
+		System.out.println(event.toString());
 		return event;
 	}
 
