@@ -16,7 +16,7 @@ public class Event extends AbstractEntity {
 	private EventRating raiting;
 	private Set<DateTime> sessionsSet = new TreeSet<>();
 	private Map<DateTime, Auditorium> auditoriums = new TreeMap<>();
-	private Set<Ticket> tickets = new TreeSet<>();
+	private Map<DateTime, Set<Ticket>> tickets = new TreeMap<>();
 
 	public String getName() {
 		return name;
@@ -50,13 +50,13 @@ public class Event extends AbstractEntity {
 		this.raiting = raiting;
 	}
 
-	public Set<Ticket> getTickets() {
-		return tickets;
-	}
-
-	public void setTickets(Set<Ticket> tickets) {
-		this.tickets = tickets;
-	}
+//	public Set<Ticket> getTickets() {
+//		return tickets;
+//	}
+//
+//	public void setTickets(Set<Ticket> tickets) {
+//		this.tickets = tickets;
+//	}
 	
 	public Map<DateTime, Auditorium> getAuditoriums() {
 		return auditoriums;
@@ -66,11 +66,19 @@ public class Event extends AbstractEntity {
 		this.auditoriums = auditoriums;
 	}
 
+	public Map<DateTime, Set<Ticket>> getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(Map<DateTime, Set<Ticket>> tickets) {
+		this.tickets = tickets;
+	}
+
 	@Override
 	public String toString() {
 		return "Event [name=" + name + ", basePrice=" + basePrice
 				+ ", raiting=" + raiting + ", sessionsSet=" + sessionsSet
-				+ ", auditoriums=" + auditoriums + ", tickets=" + tickets + "]";
+				+ ", auditoriums=" + auditoriums;
 	}
 	
 	

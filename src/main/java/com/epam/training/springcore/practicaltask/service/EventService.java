@@ -14,16 +14,17 @@ public class EventService extends AbstractService<Event, EventDao> {
 		super(dao);
 	}
 
-	public boolean assignAuditoriumToEvent(Event event, DateTime dateTime,
+	public void assignAuditoriumToEvent(Event event, DateTime dateTime,
 			Auditorium auditorium) {
-
-		if (event.getSessionsSet().contains(dateTime)) {
+		if (auditorium.getEventSchedule().contains(dateTime)) {
+			throw new IllegalArgumentException(
+					"Auditorium is unable to book at this time. Auditorium is occupied.");
+		}else{
 			event.getAuditoriums().put(dateTime, auditorium);
-			dao.save(event);
-			return true;
-		} else {
-			return false;
+			auditorium.getEventSchedule().add(dateTime);
+			
 		}
+
 	}
 
 	public boolean removeAuditoriumAssignment(Event event, Date dateTime,

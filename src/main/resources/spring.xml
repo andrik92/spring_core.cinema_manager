@@ -34,10 +34,10 @@
 		<constructor-arg ref="auditoriums" />
 	</bean>
 
-	<bean id="bookingService" class="com.epam.training.springcore.practicaltask.service.BookingService">
-		<property name="vipSeatMultiplier" value="${vip.seat.multiplier}" />
-		<property name="highRatingMultiplier" value="${high.rate.multiplier}" />
-	</bean>
+<!-- 	<bean id="bookingService" class="com.epam.training.springcore.practicaltask.service.BookingService"> -->
+<!-- 		<property name="vipSeatMultiplier" value="${vip.seat.multiplier}" /> -->
+<!-- 		<property name="highRatingMultiplier" value="${high.rate.multiplier}" /> -->
+<!-- 	</bean> -->
 
 	<bean id="discountService" class="com.epam.training.springcore.practicaltask.service.DiscountService">
 		<property name="discountStrategies">

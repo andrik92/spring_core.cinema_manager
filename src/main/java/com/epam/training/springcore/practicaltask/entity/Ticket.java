@@ -12,8 +12,7 @@ public class Ticket extends AbstractEntity {
 
 	private long seat;
 
-	public Ticket(User user, Event event, DateTime dateTime, long seat) {
-		this.user = user;
+	public Ticket(Event event, DateTime dateTime, long seat) {
 		this.event = event;
 		this.dateTime = dateTime;
 		this.seat = seat;
@@ -33,5 +32,9 @@ public class Ticket extends AbstractEntity {
 
 	public long getSeat() {
 		return seat;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

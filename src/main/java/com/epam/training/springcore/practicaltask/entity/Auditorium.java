@@ -5,6 +5,8 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.joda.time.DateTime;
+
 public class Auditorium {
 
 	private String name;
@@ -13,9 +15,12 @@ public class Auditorium {
 
 	private Set<Integer> vipSeats;
 
+	private Set<DateTime> eventSchedule;
+
 	public Auditorium(Properties props) {
 		name = props.getProperty("name");
 		numberOfSeats = Integer.valueOf(props.getProperty("numberOfSeats", "0"));
+		
 		String vips = props.getProperty("vip", null);
 		if (vips != null) {
 			Set<Integer> vipsSet = new TreeSet<>();
@@ -54,6 +59,14 @@ public class Auditorium {
 
 	public void setVipSeats(Set<Integer> vipSeats) {
 		this.vipSeats = vipSeats;
+	}
+	
+	public Set<DateTime> getEventSchedule() {
+		return eventSchedule;
+	}
+
+	public void setEventSchedule(Set<DateTime> eventSchedule) {
+		this.eventSchedule = eventSchedule;
 	}
 
 	@Override

@@ -2,7 +2,6 @@ package com.epam.training.springcore.practicaltask.business.discount;
 
 import org.joda.time.DateTime;
 
-import com.epam.training.springcore.practicaltask.entity.Ticket;
 import com.epam.training.springcore.practicaltask.entity.User;
 
 public class BirthdayDiscount implements DiscountStrategy {
