@@ -1,38 +1,40 @@
 package com.epam.training.springcore.practicaltask.service;
 
+import java.util.Collection;
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import com.epam.training.springcore.practicaltask.entity.User;
 
-//@ContextConfiguration(classes = AppConfig.class)
 @ContextConfiguration("classpath:spring.xml")
 public class TestUserService extends AbstractJUnit4SpringContextTests {
+
 	@Test
 	public void testUserServiceIsDefinedAsBean() {
 		boolean contains = applicationContext.containsBean("userService");
 		Assert.assertTrue(contains);
 	}
 
-	@DirtiesContext
 	@Test
-	public void testSavingUser() {
+	public void testRegisterUser() {
 		UserService service = applicationContext.getBean(UserService.class);
 		Assert.assertNotNull(service);
 
 		User user = createUser();
 
 		User registered = service.save(user);
+
 		Assert.assertNotNull(registered);
 		Assert.assertNotNull(registered.getId());
 		Assert.assertEquals(user, registered);
 	}
 
 	@Test
-	@DirtiesContext
 	public void testGetUser() {
 		UserService service = applicationContext.getBean(UserService.class);
 		User user = createUser();
@@ -43,12 +45,16 @@ public class TestUserService extends AbstractJUnit4SpringContextTests {
 		Assert.assertEquals(registered, byId);
 
 		User byEmail = service.getByEmail(registered.getEmail());
+
 		Assert.assertEquals(registered, byEmail);
+
+		Collection<User> users = service.getAll();
+		Assert.assertFalse(users.isEmpty());
+		Assert.assertTrue(users.contains(registered));
 	}
 
 	@Test
-	@DirtiesContext
-	public void testDeleteUser() {
+	public void testRemoveUser() {
 		UserService service = applicationContext.getBean(UserService.class);
 		User user = createUser();
 
@@ -61,10 +67,11 @@ public class TestUserService extends AbstractJUnit4SpringContextTests {
 
 	private User createUser() {
 		User user = new User();
-		user.setEmail("email@email.com");
-		user.setFirstName("aaa");
-		user.setLastName("bbb");
+		user.setEmail("mail@mail.com");
+		user.setFirstName("Andriy");
+		user.setLastName("Prokip");
+		user.setBirthDate(DateTime.parse("1992/10/08",
+				DateTimeFormat.forPattern("yy/dd/MM")));
 		return user;
 	}
-
 }

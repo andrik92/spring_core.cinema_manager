@@ -5,6 +5,7 @@ import java.util.TreeSet;
 
 import org.joda.time.DateTime;
 
+import com.epam.training.springcore.practicaltask.dao.TicketDao;
 import com.epam.training.springcore.practicaltask.entity.Event;
 import com.epam.training.springcore.practicaltask.entity.Ticket;
 import com.epam.training.springcore.practicaltask.entity.User;
@@ -16,6 +17,21 @@ public class BookingService {
 	private final double HIGH_RATED_FEE = 1.2;
 
 	DiscountService discountService;
+	TicketDao ticketDao;
+	
+	
+	public void setDiscountService(DiscountService discountService) {
+		this.discountService = discountService;
+	}
+	
+
+
+
+	public void setTicketDao(TicketDao ticketDao) {
+		this.ticketDao = ticketDao;
+	}
+
+
 
 	public double getTicketPrice(Event event, DateTime dateTime, Integer seat,
 			User user) {
@@ -45,26 +61,33 @@ public class BookingService {
 		return price;
 	}
 
-	public Set<Ticket> getPurchasedTicketsForEvent(Event event, DateTime date) {
-		if (!event.getTickets().containsKey(date)) {
-			throw new IllegalArgumentException(
-					"There is no event for choosen dateTime");
-		}
-
-		Set<Ticket> tickets = event.getTickets().get(date);
-		Set<Ticket> bookedTickets = new TreeSet<Ticket>();
-		for (Ticket ticket : tickets) {
-			if (ticket.getUser() == null) {
-				bookedTickets.add(ticket);
+	public Set<Ticket> getPurchasedTicketsForEvent(Event event, DateTime dateTime) {
+//		return ticketDao.getPurchasedTicketsOnEventSession(event, dateTime);	
+		
+//		TreeSet<Ticket> tickets = null;
+//		Set<Ticket> purchasedTicketsOnEvent = new TreeSet<Ticket>();
+		Set<Ticket> purchasedTicketsOnEventSession = new TreeSet<Ticket>();
+		
+		//tickets = (TreeSet<Ticket>) getAll();
+		
+		for (Ticket ticket: ticketDao.getAll()){
+			if(ticket.getEvent().equals(event)){
+				if (ticket.getDateTime().equals(dateTime)){
+					purchasedTicketsOnEventSession.add(ticket);
+				}
 			}
 		}
-
-		return bookedTickets;
+		
+		return purchasedTicketsOnEventSession;
+	
 	}
 	
 	public void bookTicket(User user, Ticket ticket){
-		ticket.setUser(user);
+
+		ticket.setUser(user);	
 		user.getTickets().add(ticket);
+
+		
 	}
 
 }

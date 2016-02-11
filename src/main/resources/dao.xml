@@ -12,6 +12,6 @@
 
 	<bean id="eventDao" class="com.epam.training.springcore.practicaltask.dao.impl.EventDaoImpl" />
 	
-	<bean id="ticketDao" class="com.epam.training.springcore.practicaltask.dao.impl.TicketDaoImpl"/>
+	<bean id="ticketDao" class="com.epam.training.springcore.practicaltask.dao.impl.TicketDaoImpl" />
 
 </beans>

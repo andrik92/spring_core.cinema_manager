@@ -11,17 +11,6 @@
 	<import resource="auditoriums.xml" />
 	<import resource="dao.xml" />
 
-	<bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>classpath:config.properties</value>
-			</list>
-		</property>
-		<property name="ignoreResourceNotFound" value="true" />
-		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-	</bean>
-
 	<bean id="userService" class="com.epam.training.springcore.practicaltask.service.UserService">
 		<constructor-arg ref="userDao" />
 	</bean>
@@ -34,10 +23,10 @@
 		<constructor-arg ref="auditoriums" />
 	</bean>
 
-<!-- 	<bean id="bookingService" class="com.epam.training.springcore.practicaltask.service.BookingService"> -->
-<!-- 		<property name="vipSeatMultiplier" value="${vip.seat.multiplier}" /> -->
-<!-- 		<property name="highRatingMultiplier" value="${high.rate.multiplier}" /> -->
-<!-- 	</bean> -->
+	<bean id="bookingService" class="com.epam.training.springcore.practicaltask.service.BookingService">
+		<property name="discountService" ref="discountService" />
+		<property name="ticketDao" ref="ticketDao"/>
+	</bean>
 
 	<bean id="discountService" class="com.epam.training.springcore.practicaltask.service.DiscountService">
 		<property name="discountStrategies">

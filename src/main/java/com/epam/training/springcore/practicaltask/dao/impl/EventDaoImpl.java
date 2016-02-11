@@ -17,5 +17,4 @@ public class EventDaoImpl extends AbstractDaoImpl<Event> implements EventDao {
 		return null;
 	}
 
-
 }

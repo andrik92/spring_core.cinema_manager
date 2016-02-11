@@ -15,12 +15,12 @@ public class Auditorium {
 
 	private Set<Integer> vipSeats;
 
-	private Set<DateTime> eventSchedule;
+	private Set<DateTime> eventSchedule = new TreeSet<DateTime>();;
 
 	public Auditorium(Properties props) {
 		name = props.getProperty("name");
 		numberOfSeats = Integer.valueOf(props.getProperty("numberOfSeats", "0"));
-		
+				
 		String vips = props.getProperty("vip", null);
 		if (vips != null) {
 			Set<Integer> vipsSet = new TreeSet<>();
@@ -67,12 +67,6 @@ public class Auditorium {
 
 	public void setEventSchedule(Set<DateTime> eventSchedule) {
 		this.eventSchedule = eventSchedule;
-	}
-
-	@Override
-	public String toString() {
-		return "Auditorium [name=" + name + ", numberOfSeats=" + numberOfSeats
-				+ ", vipSeats=" + vipSeats + "]";
 	}
 
 }
