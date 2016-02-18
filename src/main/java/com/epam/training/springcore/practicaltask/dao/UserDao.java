@@ -4,8 +4,8 @@ import com.epam.training.springcore.practicaltask.entity.User;
 
 public interface UserDao extends AbstractDao<User>{
 
-	public abstract User getByEmail(String email);
+	public User getByEmail(String email);
 	
-	public abstract User getByName (String firstName);
+	public User getByName (String firstName);
 
 }

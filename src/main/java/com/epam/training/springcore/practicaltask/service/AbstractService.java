@@ -5,27 +5,13 @@ import java.util.Collection;
 import com.epam.training.springcore.practicaltask.dao.AbstractDao;
 import com.epam.training.springcore.practicaltask.entity.AbstractEntity;
 
-public class AbstractService<T extends AbstractEntity, D extends AbstractDao<T>> {
-	protected D dao;
+public interface AbstractService<T extends AbstractEntity, D extends AbstractDao<T>> {
+	
+	public T save(T object);
 
-	public AbstractService(D dao) {
-		super();
-		this.dao = dao;
-	}
+	public void remove(T object);
 
-	public T save(T object) {
-		return dao.save(object);
-	}
+	public T getById(Integer id);
 
-	public void remove(T object) {
-		dao.remove(object.getId());
-	}
-
-	public T getById(Integer id) {
-		return dao.getById(id);
-	}
-
-	public Collection<T> getAll() {
-		return dao.getAll();
-	}
+	public Collection<T> getAll();
 }

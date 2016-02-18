@@ -6,12 +6,12 @@ import com.epam.training.springcore.practicaltask.entity.AbstractEntity;
 
 public interface AbstractDao<T extends AbstractEntity> {
 
-	public abstract T save(T object);
+	public T save(T object);
 
-	public abstract void remove(Integer id);
+	public void remove(Integer id);
 
-	public abstract T getById(Integer id);
+	public T getById(Integer id);
 
-	public abstract Collection<T> getAll();
+	public Collection<T> getAll();
 
 }
