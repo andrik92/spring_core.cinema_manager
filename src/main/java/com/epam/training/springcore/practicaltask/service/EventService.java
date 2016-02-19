@@ -8,6 +8,8 @@ import com.epam.training.springcore.practicaltask.entity.Event;
 
 public interface EventService extends AbstractService<Event, EventDao> {
 
+	public Event getEventByName (String name);
+	
 	public void assignAuditoriumToEvent(Event event, DateTime dateTime,
 			Auditorium auditorium);
 

@@ -14,6 +14,11 @@ public class EventServiceImpl extends AbstractServiceImpl<Event, EventDao> imple
 	}
 
 	@Override
+	public Event getEventByName(String name) {
+		return dao.getByName(name);
+	}	
+	
+	@Override
 	public void assignAuditoriumToEvent(Event event, DateTime dateTime,
 			Auditorium auditorium) {
 
