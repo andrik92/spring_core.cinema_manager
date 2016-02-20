@@ -5,11 +5,9 @@ import java.util.Map;
 
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
-import org.joda.time.DateTime;
 
 import com.epam.training.springcore.practicaltask.entity.Event;
 import com.epam.training.springcore.practicaltask.entity.Ticket;
-import com.epam.training.springcore.practicaltask.entity.User;
 
 @Aspect
 public class CounterAspect {
@@ -25,15 +23,13 @@ public class CounterAspect {
 		increaseCount(getEventByNameCounter, eventName);
 	}
 
-	@AfterReturning("execution(* com.epam.training.springcore.practicaltask.service.BookingService.getTicketPrice(..)) && args(event, dateTime,"
-			+ "seat, user)")
-	public void countGetEventTicketPrice(Event event, DateTime dateTime, Integer seat,
-			User user) {
+	@AfterReturning("execution(* com.epam.training.springcore.practicaltask.service.BookingService.getTicketPrice(..)) && args(event,..)")
+	public void countGetEventTicketPrice(Event event) {
 		increaseCount(getEventPriceCounter, event.getName());
 	}
 
-	@AfterReturning("execution(* com.epam.training.springcore.practicaltask.service.BookingService.bookTicket(..)) && args(user, ticket)")
-	public void frequencyBookTricketOnEvent(User user, Ticket ticket) {
+	@AfterReturning("execution(* com.epam.training.springcore.practicaltask.service.BookingService.bookTicket(..)) && args(.., ticket)")
+	public void frequencyBookTricketOnEvent(Ticket ticket) {
 		increaseCount(bookedEventTicketCounter, ticket.getEvent().getName());
 	}
 

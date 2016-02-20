@@ -42,18 +42,16 @@ public class TestCounterAspect {
 	@Test
 	public void testGetEventByName() {
 
-		Map<String, Integer> getEventByNameCounter = CounterAspect.getEventByNameCounter;
-
 		Assert.assertNull(eventService.getEventByName("film1"));
 
 		eventService.getEventByName("film1");
 		eventService.getEventByName("film1");
 
-		Assert.assertTrue(getEventByNameCounter.get("film1") == 3);
+		Assert.assertTrue(CounterAspect.getEventByNameCounter.get("film1") == 3);
 
 		eventService.getEventByName("film2");
 
-		Assert.assertTrue(getEventByNameCounter.get("film2") == 1);
+		Assert.assertTrue(CounterAspect.getEventByNameCounter.get("film2") == 1);
 
 	}
 

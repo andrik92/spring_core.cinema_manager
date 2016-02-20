@@ -69,4 +69,13 @@ public class Auditorium {
 		this.eventSchedule = eventSchedule;
 	}
 
+	@Override
+	public String toString() {
+		return "Auditorium [name=" + name + ", numberOfSeats=" + numberOfSeats
+				+ ", vipSeats=" + vipSeats + ", eventSchedule=" + eventSchedule
+				+ "]";
+	}
+	
+	
+
 }

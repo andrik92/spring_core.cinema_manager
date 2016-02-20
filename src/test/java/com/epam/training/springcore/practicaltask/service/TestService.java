@@ -153,7 +153,7 @@ public class TestService extends AbstractJUnit4SpringContextTests {
 		Assert.assertEquals(bookingService.getTicketPrice(testEvent, TESTED_DATE_2.plus(1), 1, testUser), EVENT_PRICE_VIP_SEAT, 0);
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testBookingTicket(){
 		
 		User testUser = createUser();

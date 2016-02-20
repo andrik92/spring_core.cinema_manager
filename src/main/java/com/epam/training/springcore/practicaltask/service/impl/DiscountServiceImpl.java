@@ -24,11 +24,13 @@ public class DiscountServiceImpl implements DiscountService{
 	public double getDiscount(User user, DateTime date) {
 
 		double discount = 0;
-
+		double currentDiscount = 0;
+		
 		//calculate the biggest discount
 		for (DiscountStrategy currentDiscountStrategy : discountStrategies) {
-			if (currentDiscountStrategy.calculateDiscount(user, date) > discount){
-				discount = currentDiscountStrategy.calculateDiscount(user, date);
+			currentDiscount = currentDiscountStrategy.calculateDiscount(user, date);
+			if (currentDiscount > discount){
+				discount = currentDiscount;
 			}
 		}
 

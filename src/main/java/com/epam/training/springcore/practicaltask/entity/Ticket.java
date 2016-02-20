@@ -12,9 +12,11 @@ public class Ticket extends AbstractEntity implements Comparable<Ticket>{
 
 	private DateTime dateTime;
 
-	private Long seat;
+	private Integer seat;
+	
+	private Double price;
 
-	public Ticket(Event event, DateTime dateTime, long seat) {
+	public Ticket(Event event, DateTime dateTime, Integer seat) {
 		this.event = event;
 		this.dateTime = dateTime;
 		this.seat = seat;
@@ -32,7 +34,7 @@ public class Ticket extends AbstractEntity implements Comparable<Ticket>{
 		return dateTime;
 	}
 
-	public long getSeat() {
+	public Integer getSeat() {
 		return seat;
 	}
 
@@ -40,6 +42,14 @@ public class Ticket extends AbstractEntity implements Comparable<Ticket>{
 		this.user = user;
 	}
 	
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(dateTime, event, seat);
@@ -88,7 +98,7 @@ public class Ticket extends AbstractEntity implements Comparable<Ticket>{
 			result = event.getName().compareTo(other.getEvent().getName());
 		}
 		if (result == 0) {
-			result = Long.valueOf(seat).compareTo(other.getSeat());
+			result = Integer.valueOf(seat).compareTo(other.getSeat());
 		}
 		return result;
 	}
