@@ -15,7 +15,6 @@ public class EventDaoImpl extends AbstractDaoImpl<Event> implements EventDao {
 			}
 		}
 		
-		System.out.println("FIRE!");
 		return null;
 	}
 

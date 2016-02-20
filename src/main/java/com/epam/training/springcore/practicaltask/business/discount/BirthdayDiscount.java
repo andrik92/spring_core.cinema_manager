@@ -11,6 +11,11 @@ public class BirthdayDiscount implements DiscountStrategy {
 	@Override
 	public double calculateDiscount(User user, DateTime date) {
 		boolean isBirthday;
+	
+		if (user.getBirthDate()==null){
+			return 0;
+		}
+		
 		isBirthday = user.getBirthDate().getDayOfMonth() == date.getDayOfMonth()
 				&& user.getBirthDate().getMonthOfYear() == date.getMonthOfYear();
 
