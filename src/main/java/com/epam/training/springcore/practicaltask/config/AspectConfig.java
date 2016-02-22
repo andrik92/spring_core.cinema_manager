@@ -11,7 +11,7 @@ import com.epam.training.springcore.practicaltask.aspect.LuckyWinnerAspect;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan
+//@ComponentScan
 public class AspectConfig {
 
 	@Bean

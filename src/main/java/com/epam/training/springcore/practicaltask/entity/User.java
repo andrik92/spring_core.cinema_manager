@@ -13,7 +13,8 @@ public class User extends AbstractEntity {
 	private String email;
 	private DateTime birthDate;
 	private Set<Ticket> bookedTickets = new TreeSet<>();
-
+	private Set<Ticket> luckyTickets = new TreeSet<>();
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -46,12 +47,20 @@ public class User extends AbstractEntity {
 		this.birthDate = birthDate;
 	}
 
-	public Set<Ticket> getTickets() {
+	public Set<Ticket> getBookedTickets() {
 		return bookedTickets;
 	}
 
-	public void setTickets(Set<Ticket> tickets) {
-		this.bookedTickets = tickets;
+	public void setBookedTickets(Set<Ticket> bookedTickets) {
+		this.bookedTickets = bookedTickets;
+	}
+
+	public Set<Ticket> getLuckyTickets() {
+		return luckyTickets;
+	}
+
+	public void setLuckyTickets(Set<Ticket> luckyTickets) {
+		this.luckyTickets = luckyTickets;
 	}
 
 	@Override

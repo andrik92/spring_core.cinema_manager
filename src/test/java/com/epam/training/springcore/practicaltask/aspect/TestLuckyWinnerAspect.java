@@ -67,11 +67,7 @@ public class TestLuckyWinnerAspect {
 			bookingService.bookTicket(user, ticket);
 		}
 		
-		for (Ticket luckyTicket : user.getTickets()){
-			if (luckyTicket.getPrice() == 0){
-				luckyTicketsCount++;
-			}
-		}
+		luckyTicketsCount = user.getLuckyTickets().size();
 		
 		Assert.assertTrue(luckyTicketsCount == LuckyWinnerAspect.luckyTicketsCount);
 	}

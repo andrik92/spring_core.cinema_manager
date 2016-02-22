@@ -166,10 +166,10 @@ public class TestService extends AbstractJUnit4SpringContextTests {
 		bookingService.bookTicket(testUser2, testTicket2);				
 		
 		Assert.assertEquals(testTicket.getUser(),testUser);
-		Assert.assertTrue(testUser.getTickets().contains(testTicket));
+		Assert.assertTrue(testUser.getBookedTickets().contains(testTicket));
 		
 		Assert.assertEquals(testTicket2.getUser(),testUser2);
-		Assert.assertTrue(testUser2.getTickets().contains(testTicket2));
+		Assert.assertTrue(testUser2.getBookedTickets().contains(testTicket2));
 		
 		Assert.assertNotEquals(2, bookingService.getPurchasedTicketsForEvent(testEvent, TESTED_DATE).size());
 		

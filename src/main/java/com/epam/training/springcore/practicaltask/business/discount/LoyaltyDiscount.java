@@ -11,7 +11,7 @@ public class LoyaltyDiscount implements DiscountStrategy {
 
 	@Override
 	public double calculateDiscount(User user, DateTime date) {
-		int totalBuyedTickets = user.getTickets().size();
+		int totalBuyedTickets = user.getBookedTickets().size();
 		if (totalBuyedTickets != 0 && totalBuyedTickets % MULTIPLE == 0) {
 			return DISCOUNT;
 		} else {

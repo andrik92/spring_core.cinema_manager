@@ -75,10 +75,10 @@ public class BookingServiceImpl implements BookingService {
 
 	@Override
 	public void bookTicket(User user, Ticket ticket) {
-		double price = getTicketPrice(ticket.getEvent(), ticket.getDateTime(), ticket.getSeat(), user);
-		ticket.setPrice(price);
+//		double price = getTicketPrice(ticket.getEvent(), ticket.getDateTime(), ticket.getSeat(), user);
+//		ticket.setPrice(price);
 		ticket.setUser(user);
-		user.getTickets().add(ticket);
+		user.getBookedTickets().add(ticket);
 	}
 
 }

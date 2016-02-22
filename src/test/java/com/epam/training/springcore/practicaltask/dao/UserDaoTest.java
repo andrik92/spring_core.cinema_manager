@@ -1,50 +1,51 @@
-package com.mkyong.dao;
+package com.epam.training.springcore.practicaltask.dao;
 
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.mkyong.model.User;
+import com.epam.training.springcore.practicaltask.config.AspectConfig;
+import com.epam.training.springcore.practicaltask.config.H2DataSourceConfig;
+import com.epam.training.springcore.practicaltask.temp.dao.UserDaoImpl;
+import com.epam.training.springcore.practicaltask.temp.model.User;
 
+@ContextConfiguration
+@RunWith(SpringJUnit4ClassRunner.class)
 public class UserDaoTest {
 
-    private EmbeddedDatabase db;
+	@Configuration
+//	 @Import(AspectConfig.class)
+	@Import(H2DataSourceConfig.class)
+//	@ImportResource({ "classpath:spring.xml" })
+	public static class ContextConfig {
+	}
 
-    UserDao userDao;
-    
-    @Before
-    public void setUp() {
-        //db = new EmbeddedDatabaseBuilder().addDefaultScripts().build();
-    	db = new EmbeddedDatabaseBuilder()
-    		.setType(EmbeddedDatabaseType.H2)
-    		.addScript("db/sql/create-db.sql")
-    		.addScript("db/sql/insert-data.sql")
-    		.build();
-    }
+	@Autowired
+	private EmbeddedDatabase db;
 
-    @Test
-    public void testFindByname() {
-    	NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(db);
-    	UserDaoImpl userDao = new UserDaoImpl();
-    	userDao.setNamedParameterJdbcTemplate(template);
-    	
-    	User user = userDao.findByName("mkyong");
-  
-    	Assert.assertNotNull(user);
-    	Assert.assertEquals(1, user.getId().intValue());
-    	Assert.assertEquals("mkyong", user.getName());
-    	Assert.assertEquals("mkyong@gmail.com", user.getEmail());
+	UserDao userDao;
 
-    }
+	@Test
+	public void testFindByname() {
+		NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(db);
+		UserDaoImpl userDao = new UserDaoImpl();
+		userDao.setNamedParameterJdbcTemplate(template);
 
-    @After
-    public void tearDown() {
-        db.shutdown();
-    }
+		User user = userDao.findByName("mkyong");
+
+		Assert.assertNotNull(user);
+		Assert.assertEquals(1, user.getId().intValue());
+		Assert.assertEquals("mkyong", user.getName());
+		Assert.assertEquals("mkyong@gmail.com", user.getEmail());
+
+	}
 
 }

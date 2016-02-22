@@ -2,8 +2,8 @@ package com.epam.training.springcore.practicaltask.aspect;
 
 import java.util.Random;
 
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 
 import com.epam.training.springcore.practicaltask.entity.Ticket;
 
@@ -12,7 +12,7 @@ public class LuckyWinnerAspect {
 	
 	static int luckyTicketsCount = 0;
 
-	@After("execution(* com.epam.training.springcore.practicaltask.service.BookingService.bookTicket(..)) && args(.., ticket)")
+	@Before("execution(* com.epam.training.springcore.practicaltask.service.BookingService.bookTicket(..)) && args(.., ticket)")
 	public void frequencyBookTricketOnEvent(Ticket ticket) {
 		if (isLucky()) {
 			ticket.setPrice(0.00);
