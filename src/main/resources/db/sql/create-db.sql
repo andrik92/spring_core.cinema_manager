@@ -24,14 +24,28 @@ CREATE TABLE event (
   rating VARCHAR(30)
 );
 
---CREATE TABLE eventSession (
---  id INTEGER NOT NULL AUTO_INCREMENT,
---  eventId INTEGER,
---  session TIMESTAMP,
---  auditoriumId INTEGER
---);
 
 --for ascpects;
+--CREATE TABLE event_counter (
+--	id INTEGER NOT NULL AUTO_INCREMENT,
+--	event_id INTEGER,
+--	count_access_event INTEGER,
+--	count_access_event_price INTEGER,
+--	count_booked_ticket INTEGER
+--);
+
+--CREATE TABLE discount_counter (
+--	id INTEGER NOT NULL AUTO_INCREMENT,
+--	name VARCHAR(50),
+--	count INTEGER
+--);
+
+--CREATE TABLE lucky_winner_counter (
+--	id INTEGER NOT NULL AUTO_INCREMENT,
+--	user_id INTEGER,
+--	count INTEGER
+--);
+
 CREATE TABLE access_by_name_counter (
 	id INTEGER NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50),

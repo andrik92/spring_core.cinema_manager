@@ -8,12 +8,10 @@ import com.epam.training.springcore.practicaltask.dao.UserDao;
 import com.epam.training.springcore.practicaltask.entity.User;
 import com.epam.training.springcore.practicaltask.jdbc.mapper.JodaTimeSavvyBeanPropertyRowMapper;
 
-//@Repository("userDao")
 public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao{
 	
 	private final static String TABLE_NAME = "users";
 
-//	@Autowired
 	public UserDaoImpl(JdbcTemplate jdbcTemplate) {
 		super(new JodaTimeSavvyBeanPropertyRowMapper<User>(User.class), TABLE_NAME, jdbcTemplate);
 	}

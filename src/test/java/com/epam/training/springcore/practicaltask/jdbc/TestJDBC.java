@@ -1,4 +1,4 @@
-package com.epam.training.springcore.practicaltask.dao;
+package com.epam.training.springcore.practicaltask.jdbc;
 
 import org.joda.time.DateTime;
 import org.junit.Assert;
@@ -8,28 +8,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.epam.training.springcore.practicaltask.config.H2DataSourceConfig;
+import com.epam.training.springcore.practicaltask.dao.EventDao;
+import com.epam.training.springcore.practicaltask.dao.TicketDao;
+import com.epam.training.springcore.practicaltask.dao.UserDao;
 import com.epam.training.springcore.practicaltask.entity.User;
+import com.epam.training.springcore.practicaltask.jdbc.dao.impl.CounterAccessByNameDaoImpl;
 import com.epam.training.springcore.practicaltask.jdbc.mapper.TicketRowMapper;
 
 @ContextConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
-// @ContextConfiguration(locations = { "classpath:spring.xml" })
-public class UserDaoTest {
+public class TestJDBC {
 
 	@Configuration
-	// @Import(AspectConfig.class)
 	@Import(H2DataSourceConfig.class)
 	@ImportResource(locations = { "classpath:spring.xml" })
 	public static class ContextConfig {
 	}
-
-	@Autowired
-	private EmbeddedDatabase db;
 
 	@Autowired
 	private UserDao userDao;
@@ -42,9 +40,12 @@ public class UserDaoTest {
 
 	@Autowired
 	private TicketRowMapper ticketRowMapper;
+	
+	@Autowired
+	private CounterAccessByNameDaoImpl counterAccessByName;
 
 	@Test
-	public void testFindByName() {
+	public void test() {
 		User user = userDao.getById(1);
 
 		Assert.assertNotNull(user);
@@ -56,15 +57,19 @@ public class UserDaoTest {
 		user1.setFirstName("TestName");
 		user1.setLastName("LastName");
 		user1.setEmail("email");
-		user1.setBirthDate(new DateTime());
+		user1.setBirthDate(new DateTime("2016-02-26"));
 
 		userDao.save(user1);
 
-		System.out.println(eventDao.getAll().toString());
-
-		System.out.println(ticketDao.getAll().toString()
-				+ "\n\n\n\n\n\n***********************************");
-
+		Assert.assertEquals(userDao.getByName("TestName"), user1);	
+		
+		int count = counterAccessByName.getCountByName("film");
+		
+		counterAccessByName.updateCountByName("film");
+		
+		Assert.assertFalse(count == counterAccessByName.getCountByName("film"));
+		
+		Assert.assertTrue(++count == counterAccessByName.getCountByName("film"));
 	}
 
 }

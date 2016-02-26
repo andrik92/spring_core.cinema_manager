@@ -2,8 +2,6 @@ package com.epam.training.springcore.practicaltask.dao.impl;
 
 import java.util.Map.Entry;
 
-import org.springframework.stereotype.Repository;
-
 import com.epam.training.springcore.practicaltask.dao.UserDao;
 import com.epam.training.springcore.practicaltask.entity.User;
 

@@ -10,6 +10,7 @@
 
 	<import resource="auditoriums.xml" />
 	<import resource="dao.xml" />
+	<import resource="counter.xml" />
 
 	<bean id="userService" class="com.epam.training.springcore.practicaltask.service.impl.UserServiceImpl">
 		<constructor-arg ref="userDao" />

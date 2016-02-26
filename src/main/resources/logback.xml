@@ -8,14 +8,6 @@
 			</Pattern>
 		</layout>
 	</appender>
-
-	<logger name="org.springframework" level="debug" additivity="false">
-		<appender-ref ref="STDOUT" />
-	</logger>
-	
-	<logger name="com.epam.training.springcore.practicaltask" level="debug" additivity="false">
-		<appender-ref ref="STDOUT" />
-	</logger>
 	 
 	<root level="error">
 		<appender-ref ref="STDOUT" />

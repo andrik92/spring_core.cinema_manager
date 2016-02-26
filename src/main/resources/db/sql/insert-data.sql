@@ -6,3 +6,4 @@ INSERT INTO ticket VALUES (1, 1, 1, '2016-02-28 18:30:00', 1, 50.00);
 
 INSERT INTO event VALUES (1, 'Film', 50.00, 'MID');
 
+INSERT INTO access_by_name_counter VALUES (1, 'film', 55);

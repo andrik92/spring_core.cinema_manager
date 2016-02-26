@@ -15,10 +15,10 @@ public class TicketDaoImpl extends AbstractDaoImpl<Ticket> implements TicketDao 
 	private final static String TABLE_NAME = "ticket";
 
 	@Autowired
-	UserDao userDao;
+	private UserDao userDao;
 	
 	@Autowired
-	TicketRowMapper ticketRowMapper;
+	private TicketRowMapper ticketRowMapper;
 	
 	public TicketDaoImpl(TicketRowMapper ticketRowMapper, JdbcTemplate jdbcTemplate) {
 		super(ticketRowMapper, TABLE_NAME, jdbcTemplate);
