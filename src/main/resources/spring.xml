@@ -36,5 +36,7 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="ticketRowMapper" class="com.epam.training.springcore.practicaltask.jdbc.mapper.TicketRowMapper"/>
 
 </beans>

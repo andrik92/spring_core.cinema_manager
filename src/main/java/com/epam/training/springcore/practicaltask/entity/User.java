@@ -111,5 +111,14 @@ public class User extends AbstractEntity {
 		}
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", birthDate=" + birthDate
+				+ ", bookedTickets=" + bookedTickets + ", luckyTickets="
+				+ luckyTickets + "]";
+	}
+	
 	
 }

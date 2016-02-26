@@ -14,7 +14,7 @@ public class Event extends AbstractEntity {
 
 	private String name;
 	private double basePrice;
-	private EventRating raiting;
+	private EventRating rating;
 	private Set<DateTime> sessionsSet = new TreeSet<>();
 	private Map<DateTime, Auditorium> auditoriums = new TreeMap<>();
 
@@ -42,14 +42,13 @@ public class Event extends AbstractEntity {
 		this.basePrice = basePrice;
 	}
 
-	public EventRating getRaiting() {
-		return raiting;
+	public EventRating getRating() {
+		return rating;
 	}
 
-	public void setRaiting(EventRating raiting) {
-		this.raiting = raiting;
+	public void setRating(EventRating raiting) {
+		this.rating = raiting;
 	}
-
 
 	public Map<DateTime, Auditorium> getAuditoriums() {
 		return auditoriums;
@@ -62,7 +61,7 @@ public class Event extends AbstractEntity {
 	@Override
 	public String toString() {
 		return "Event [name=" + name + ", basePrice=" + basePrice
-				+ ", raiting=" + raiting + ", sessionsSet=" + sessionsSet
+				+ ", raiting=" + rating + ", sessionsSet=" + sessionsSet
 				+ ", auditoriums=" + auditoriums + ", tickets=]";
 	}
 	

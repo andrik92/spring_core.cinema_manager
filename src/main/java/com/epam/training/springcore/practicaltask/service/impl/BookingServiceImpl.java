@@ -36,7 +36,7 @@ public class BookingServiceImpl implements BookingService {
 
 		price = event.getBasePrice();
 
-		if (event.getRaiting() == EventRating.HIGH) {
+		if (event.getRating() == EventRating.HIGH) {
 			price *= HIGH_RATED_FEE;
 		}
 

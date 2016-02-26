@@ -1,7 +1,7 @@
 --DROP TABLE users IF EXISTS;
 
 CREATE TABLE users (
-  id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id INTEGER NOT NULL AUTO_INCREMENT,
   firstName VARCHAR(30),
   lastName  VARCHAR(30),
   email VARCHAR(30),
@@ -9,24 +9,27 @@ CREATE TABLE users (
 );
 
 CREATE TABLE ticket (
-  id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  userId INTEGER,
+  eventId INTEGER,
   dateTime TIMESTAMP,
   seat INTEGER,
   price DOUBLE
 );
 
 CREATE TABLE event (
-  id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id INTEGER NOT NULL AUTO_INCREMENT,
   name VARCHAR(30),
   basePrice DOUBLE,
   rating VARCHAR(30)
 );
 
-CREATE TABLE auditorium (
-  id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name VARCHAR(30),
-  numberOfSeats INTEGER
-);
+--CREATE TABLE eventSession (
+--  id INTEGER NOT NULL AUTO_INCREMENT,
+--  eventId INTEGER,
+--  session TIMESTAMP,
+--  auditoriumId INTEGER
+--);
 
 --for ascpects;
 CREATE TABLE access_by_name_counter (

@@ -15,6 +15,10 @@ public class Ticket extends AbstractEntity implements Comparable<Ticket>{
 	private Integer seat;
 	
 	private Double price;
+	
+	public Ticket() {
+		super();
+	}
 
 	public Ticket(Event event, DateTime dateTime, Integer seat) {
 		this.event = event;
@@ -48,6 +52,18 @@ public class Ticket extends AbstractEntity implements Comparable<Ticket>{
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	
+	public void setEvent(Event event) {
+		this.event = event;
+	}
+
+	public void setDateTime(DateTime dateTime) {
+		this.dateTime = dateTime;
+	}
+
+	public void setSeat(Integer seat) {
+		this.seat = seat;
 	}
 
 	@Override
@@ -102,4 +118,12 @@ public class Ticket extends AbstractEntity implements Comparable<Ticket>{
 		}
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		return "Ticket [user=" + user + ", event=" + event + ", dateTime="
+				+ dateTime + ", seat=" + seat + ", price=" + price + "]";
+	}
+	
+	
 }

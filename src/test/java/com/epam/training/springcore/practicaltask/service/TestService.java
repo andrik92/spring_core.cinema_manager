@@ -146,7 +146,7 @@ public class TestService extends AbstractJUnit4SpringContextTests {
 		Assert.assertEquals(bookingService.getTicketPrice(testHighRatedEvent, TESTED_DATE_2, 10, testUser), HIGH_RATED_EVENT_PRICE, 0);		
 		Assert.assertEquals(bookingService.getTicketPrice(testHighRatedEvent, TESTED_DATE_2, 1, testUser), HIGH_RATEDEVENT_PRICE_VIP_SEAT, 0);
 
-		testEvent.setRaiting(EventRating.MID);
+		testEvent.setRating(EventRating.MID);
 		eventService.assignAuditoriumToEvent(testEvent, TESTED_DATE_2.plus(1), testAuditorium);
 		
 		Assert.assertEquals(bookingService.getTicketPrice(testEvent, TESTED_DATE_2.plus(1), 10, testUser), EVENT_BASE_PRICE, 0);
@@ -196,7 +196,7 @@ public class TestService extends AbstractJUnit4SpringContextTests {
 		sessionSet.add(TESTED_DATE);
 
 		event.setName("Panda 4DX");
-		event.setRaiting(EventRating.HIGH);
+		event.setRating(EventRating.HIGH);
 		event.setSessionsSet(sessionSet);
 		event.setBasePrice(EVENT_BASE_PRICE);
 		

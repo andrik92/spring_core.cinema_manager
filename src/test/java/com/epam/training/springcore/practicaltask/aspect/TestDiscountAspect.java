@@ -57,7 +57,7 @@ public class TestDiscountAspect {
 		Auditorium auditorium = new Auditorium(props);
 
 		event.setName("film1");
-		event.setRaiting(EventRating.HIGH);
+		event.setRating(EventRating.HIGH);
 		event.setBasePrice(100.00);
 		event.setSessionsSet(sessionSet);
 

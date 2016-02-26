@@ -8,10 +8,26 @@
  		http://www.springframework.org/schema/util
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-	<bean id="userDao" class="com.epam.training.springcore.practicaltask.dao.impl.UserDaoImpl" />
+	<!-- <bean id="userDao" class="com.epam.training.springcore.practicaltask.dao.impl.UserDaoImpl" 
+		/> -->
 
-	<bean id="eventDao" class="com.epam.training.springcore.practicaltask.dao.impl.EventDaoImpl" />
-	
-	<bean id="ticketDao" class="com.epam.training.springcore.practicaltask.dao.impl.TicketDaoImpl" />
+	<!-- <bean id="eventDao" class="com.epam.training.springcore.practicaltask.dao.impl.EventDaoImpl" 
+		/> -->
 
+	<!-- <bean id="ticketDao" class="com.epam.training.springcore.practicaltask.dao.impl.TicketDaoImpl" 
+		/> -->
+
+
+	<bean id="userDao" class="com.epam.training.springcore.practicaltask.jdbc.dao.impl.UserDaoImpl">
+		<constructor-arg ref="jdbcTemplate" />
+	</bean>
+
+	<bean id="eventDao"	class="com.epam.training.springcore.practicaltask.jdbc.dao.impl.EventDaoImpl">
+		<constructor-arg ref="jdbcTemplate" />
+	</bean>
+
+	<bean id="ticketDao" class="com.epam.training.springcore.practicaltask.jdbc.dao.impl.TicketDaoImpl">
+		<constructor-arg ref="ticketRowMapper" />
+		<constructor-arg ref="jdbcTemplate" />
+	</bean>
 </beans>
